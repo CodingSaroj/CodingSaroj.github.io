@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <html>
   <head>
     <title>
@@ -5,58 +6,59 @@
     </title>
     <style type="text/css">
       .main {
-        color: 000000;
-        background-color: ffffff;
+        color: #000000;
+        background-color: #ffffff;
         width: 80%;
         height: 1200px;
         align: center;
-        margin-top: 2%;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-bottom: 10%;
+        margin: 2% 10% 10% 10%;
         border-radius: 5px;
       }
       
-      .pagelinks: {
-        color: 000000;
-        background-color: ffffff;
-        width: 80%;
+      .pagelinks {
+        color: #000000;
+        background-color: #000000;
+        width: 70%;
         height: 100px;
-        align: center;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 15%;
+        margin-right: 15%;
         border-radius: 5px;
       }
       
-      .pagelinks > a:link {
-        color: 000000;
-        background-color: ffffff;
-        padding: 20px 50px 20px 50px;
-      }    
+      .pagelink {
+        color: #000000;
+        background-color: #ffffff;
+        width: 12.127%;
+        height: 100px;
+        white-space: normal;
+        padding: 0 0 0 0;
+        border: 3px solid black;
+        border-radius: 5px;
+      }  
       
-      .pagelinks > a:visited {
-        color: 000000;
-        background-color: ffffff;
-        padding: 20px 50px 20px 50px;
-      }   
-      
-      .pagelinks > a:hover {
+      .pagelink:hover {
         color: ffffff;
         background-color: 000000;
-        padding: 20px 50px 20px 50px;
+        width: 12.127%;
+        height: 100px;
+        padding: 0 0 0 0;
+        border: 3px solid white;
+        border-radius: 5px;
+        cursor: pointer;
       }
-      
-      .pagelinks > a:active {
-        color: 000000;
-        background-color: ffffff;
-        padding: 20px 50px 20px 50px;
-      }   
     </style>
   </head>
   <body bgcolor="#555500">
     <font size=9 color="#ffffff"><h1 align="center">Saroj Games</h1></font>
     <div class="pagelinks">
-      <a href="https://www.google.com">Home</a>
+      <button class="pagelink"><font size=4><b>Home</b></font></button>
+      <button class="pagelink"><font size=4><b>Games</b></font></button>
+      <button class="pagelink"><font size=4><b>Ractor</b></font></button>
+      <button class="pagelink"><font size=4><b>Tools</b></font></button>
+      <button class="pagelink"><font size=4><b>Learn</b></font></button>
+      <button class="pagelink"><font size=4><b>My Github</b></font></button>
+      <button class="pagelink"><font size=4><b>My Patreon</b></font></button>
+      <button class="pagelink"><font size=4><b>About</b></font></button>
     </div>
     <div class="main">
       Hello World Divisions!
