@@ -1,7 +1,7 @@
 function homeOnClick(){
-	window.location.assign("http://www.sarojgames.technology");
+	window.location.assign("http://www.sarojgames.technology")
 }
 
 function githubOnClick(){
-	window.location.assign("http://www.github.com/SarojKumar10);
+	window.location.assign("http://www.github.com/SarojKumar10")
 }
