@@ -2,6 +2,11 @@ body {
     background-color: #555500;
 }
 
+h1 {
+    color: white;
+    font-size: 40px;
+}
+
 .main {
     color: #000000;
     background-color: #ffffff;
@@ -26,6 +31,7 @@ body {
     background-color: #ffffff;
     width: 12.127%;
     height: 100px;
+    font-size: 20px;
     white-space: normal;
     padding: 0 0 0 0;
     border: 3px solid black;
