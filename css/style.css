@@ -289,7 +289,7 @@ html, body{
 .footer{
     display: flex;
     width: 100%;
-    height: 70px;
+    height: min-content;
     background-color: #222222cc;
     color: #ffffff;
     font-family: 'Open Sans';
@@ -367,5 +367,9 @@ html, body{
 
     .menu-button{
         display: block;
+    }
+
+    .footer section{
+        flex-direction: column;
     }
 }
