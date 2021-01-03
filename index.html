@@ -1,121 +1,92 @@
-<!--suppress ALL -->
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
-      Saroj Games
-    </title>
-    <style type="text/css">
-      body {
-        background-image: linear-gradient(135deg, #222222, #888888);
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+    <title>Coding Saroj</title>
+</head>
+<body class="background">
+    <div class="topbar">
+        <nav class="navbar nav-resize-height navbar-align">
+            <ul class="nav-list-left nav-left-item-visibility">
+                <div class="logo logo-align">
+                    <a href="http://127.0.0.1:5500">
+                        <button class="img-btn">
+                            <img src="img/CodingSaroj256x256.png" alt="CodingSaroj">
+                        </button>
+                    </a>
+                </div>
+                <li><button onclick="setPageContent('home.html')">Home</button></li>
+                <li><button onclick="setPageContent('projects.html')">Projects</button></li>
+                <li><button onclick="setPageContent('blog.html')">Blog</button></li>
+                <li><button onclick="setPageContent('about.html')">About</button></li>
+            </ul>
 
-      h1 {
-        color: white;
-        font-size: 80px;
-      }
+            <ul class="nav-list-right nav-right-item-visibility">
+                <div class="logo-github">
+                    <a href="https://github.com/SarojKumar10">
+                        <button class="img-btn">
+                            <img src="img/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png" alt="Github">
+                        </button>
+                    </a>
+                </div>
+            </ul>
+        </nav>
 
-      .main {
-        color: #000000;
-        background-image: linear-gradient(135deg, #00ffff, #ff0000);
-        width: 80%;
-        height: 1200px;
-        margin: 2% 10% 10% 10%;
-        border-radius: 5px;
-      }
-
-      .pagelinks {
-        color: #000000;
-        background-color: #000000;
-        width: 70%;
-        height: 100px;
-        margin: 0% 15% 0% 15%;
-        border-radius: 5px;
-      }
-
-      .pagelink {
-        color: #000000;
-        background-color: #ffffff;
-        width: 12.127%;
-        height: 100px;
-        transition: transform 0.05s;
-        font-size: medium;
-        padding: 0 0 0 0;
-        border: 3px solid black;
-        border-radius: 5px;
-      }
-
-      .pagelink:hover {
-        color: #ffffff;
-        background-color: #000000;
-        width: 12.127%;
-        height: 100px;
-        transform: scale(1.1);
-        padding: 0 0 0 0;
-        border: 3px solid white;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .floatinginfo {
-        width: 80%;
-        height: 300px;
-        font-family: Ubuntu;
-        font-size: 25px;
-      }
-
-      .floatingbutton {
-        width: 20%;
-        height: 20%;
-        font-size: 25;
-        font-family: Ubuntu;
-        transition: transform 0.05s;
-        color: #ffffff;
-        background-color: #ffffff00;
-        border-width: 5%;
-        border-style: solid;
-        border-color: #ffffff;
-        border-radius: 5px;
-      }
-
-      .floatingbutton:hover {
-        transform: scale(1.1);
-        color: #000000;
-        background-color: #ffffff;
-        cursor: pointer;
-      }
-    </style>
-    <script type="text/javascript" src="functionality.js"></script>
-  </head>
-  <body>
-  <h1 align="center"><font style="font-family: Ubuntu">Saroj Games</font></h1>
-    <div class="pagelinks">
-      <button class="pagelink" onclick="homeOnClick()"><b>Home</b></button>
-      <button class="pagelink" onclick="gamesOnClick()"><b>Games</b></button>
-      <button class="pagelink" onclick="ractorOnClick()"><b>Ractor</b></button>
-      <button class="pagelink" onclick="toolsOnClick()"><b>Tools</b></button>
-      <button class="pagelink" onclick="learnOnClick()"><b>Learn</b></button>
-      <button class="pagelink" onclick="githubOnClick()"><b>My Github</b></button>
-      <button class="pagelink"><b>My Patreon</b></button>
-      <button class="pagelink" onclick="aboutOnClick()"><b>About</b></button>
-    </div>
-    <div class="main">
-      <div style="padding-top: 10%"></div>
-      <div class="floatinginfo" style="float: left; background-image: linear-gradient(135deg, #0000ff, #00ffff); text-align: left; margin: 0 10% 0 10%;"><br><br><br><br>
-        <div style="padding-left: 5%; color: #ffffff">
-          Wanna make games try out Ractor.
-          <button class="floatingbutton" style="margin-left: 25%;">
-              Learn more
-          </button>
+        <div class="menu-button">
+            <div class="menu-button-line"></div>
+            <div class="menu-button-line"></div>
+            <div class="menu-button-line"></div>
         </div>
-      </div>
-      <div class="floatinginfo" style="float: right; background-image: linear-gradient(-135deg, #ff0000, #ffff00); text-align: right; margin: 0 10% 0 10%;"><br><br><br><br>
-        <div style="padding-right: 5%; color: #ffffff">
-          <button class="floatingbutton" style="margin-right: 30%;">
-            Get Started!
-          </button>
-          Learn programming for free.
-        </div>
-      </div>
     </div>
-  </body>
+
+    <script src="js/responsive.js" type="text/javascript"></script>
+
+    <section class="content">
+        <div id="page-content" include-html="home.html"></div>
+
+        <!-- Project & blog formats. Won't affect non-project & non-blog pages. -->
+        <div>
+            <div id="blog-search-container" style="display: flex; width: 100%; flex-wrap: wrap; justify-content: center; align-items: center;">
+                <p style="padding: 15px 10px 0 0;"><b>Search:</b></p>
+                <input style="width: 70%; border-radius: 10px; padding: 0px 5px; margin: 15px 0 0 0;" id="blog-search" oninput="searchBlogPosts()">
+            </div>
+            <ul id="post-list"></ul>
+        </div>
+
+        <div>
+            <div id="project-search-container" style="display: flex; width: 100%; flex-wrap: wrap; justify-content: center; align-items: center;">
+                <p style="padding: 15px 10px 0 0;"><b>Search:</b></p>
+                <input style="width: 70%; border-radius: 10px; padding: 0px 5px; margin: 15px 0 0 0;" id="project-search" oninput="searchProjects()">
+            </div>
+            <ul id="project-list"></ul>
+        </div>
+
+        <h1 id="blog-title"></h1>
+        <h1 id="project-title"></h1>
+        <div id="project-tags" style="display: flex; flex-wrap: wrap;"></div>
+
+        <br>
+
+        <p id="blog-content"></p>
+        <div id="project-info"></div>
+
+        <br>
+
+        <p id="blog-footer"></p>
+        <p id="project-description"></p>
+    </section>
+
+    <footer class="footer">
+        Licensed under the MIT license. Copyright &copy; 2020 Saroj Kumar.
+    </footer>
+
+    <script>
+        onWindowLoad();
+        includePageContent();
+    </script>
+</body>
 </html>
