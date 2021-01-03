@@ -1,0 +1,372 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    min-height: 100%;
+    margin: 0;
+}
+
+.logo{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    width: 60px;
+    padding: 5px 0 0 0;
+}
+
+.logo-github{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: end;
+}
+
+.logo-github img{
+    width: 50px;
+    padding: 0px 0 0 0;
+}
+
+.topbar{
+    position: sticky;
+    top: 0;
+}
+
+.menu-button{
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 5px;
+    width: 50px;
+    height: 48px;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-button-line{
+    height: 5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    margin: 8px 5px 8px 5px;
+}
+
+.navbar{
+    display: flex;
+    background-color: #222222cc;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-list-left{
+    display: flex;
+    width: 50%;
+}
+
+.nav-list-left li{
+    display: block;
+    height: 60px;
+    list-style: none;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.nav-list-left button{
+    width: 100%;
+    height: 100%;
+    background: none;
+    color: #ffffff;
+    font-family: 'Open Sans';
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-list-left li button:hover{
+    color: #dddddd;
+}
+
+.nav-list-right{
+    display: flex;
+    width: 50%;
+    justify-content: right;
+    align-items: end;
+    padding: 0px 10px;
+}
+
+.background{
+    height: 100%;
+    background: linear-gradient(135deg, #aa0000, #00aaaa) no-repeat center center fixed;
+    background-color: #dddddd;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.btn{
+    background: none;
+    color: #ffffff;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-family: 'Open Sans';
+    font-size: 18px;
+}
+
+.img-btn{
+    background: none;
+    border-style: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.content{
+    min-height: 100vh;
+    height: 100%;
+    padding: 50px 10%;
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    margin: 10px 0px;
+    word-wrap: break-word;
+}
+
+.content h1{
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 40px;
+    margin: 10px 0px;
+    word-wrap: break-word;
+}
+
+.content h2{
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 30px;
+    margin: 10px 0px;
+    word-wrap: break-word;
+
+}
+
+.content h3{
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 25px;
+    margin: 10px 0px;
+    word-wrap: break-word;
+}
+
+.content h4{
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 23px;
+    margin: 10px 0px;
+    word-wrap: break-word;
+}
+
+.content h5{
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 21px;
+    margin: 10px 0px;
+    word-wrap: break-word;
+}
+
+.content h6{
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0px;
+    word-wrap: break-word;
+}
+
+.content button{
+    background: none;
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    padding: 5px 5px;
+    border: 2px solid #dddddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.content button:hover{
+    transform: scale(1.05)
+}
+
+.content button:active{
+    transform: scale(0.95)
+}
+
+.content li{
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    margin: 10px 0px;
+}
+
+.content blockquote{
+    background-color: #00000033;
+    color: #dddddd;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    padding: 5px 5px;
+    margin: 20px 0px;
+    border-left: 4px solid #dddddd;
+}
+
+.content input{
+    color: #000000;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    padding: 5px 5px;
+    border: 2px solid #dddddd;
+    border-radius: 5px;
+    margin: 10px 0px;
+    transition: 0.1s;
+}
+
+.content input:focus{
+    border-color: #000000;
+}
+
+.content input[type="checkbox"]{
+    cursor: pointer;
+}
+
+.content textarea{
+    color: #000000;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    padding: 5px 5px;
+    border: 2px solid #dddddd;
+    border-radius: 5px;
+    margin: 10px 0px;
+    resize: none;
+    transition: 0.1s;
+}
+
+.content textarea:focus{
+    border-color: #000000;
+}
+
+.content progress{
+    background-color: #dddddd;
+    border: 2px solid #dddddd;
+    border-radius: 3px;
+    margin: 10px 0px;
+}
+
+.content a{
+    color: #32ff32;
+    font-weight: medium;
+    text-decoration: none;
+}
+
+.content a:visited{
+    color: #ffff46;
+   font-weight: medium;
+    text-decoration: none;
+}
+
+.content a:hover{
+    text-decoration: underline;
+}
+
+.footer{
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #222222cc;
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-block{
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    background-color: #00000088;
+    margin: 20px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-block p{
+    font-size: 20px;
+    padding: 0px 20px;
+}
+
+.home-block button{
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+@media only screen and (max-width: 460px){
+    .logo-align{
+        justify-content: start;
+        align-items: start;
+    }
+
+    .logo-github-align{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-button-rotation{
+        transform: rotateZ(-90deg)
+    }
+
+    .navbar{
+        flex-direction: column;
+        height: 460px;
+        transition: all 0.1s ease-out;
+    }
+
+    .navbar-align{
+        align-items: start;
+    }
+
+    .nav-list-left{
+        flex-direction: column;
+    }
+
+    .nav-list-right{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-resize-height{
+        height: 80px;
+    }
+
+    .nav-left-item-visibility li{
+        display: none;
+    }
+
+    .nav-right-item-visibility{
+        display: none;
+    }
+
+    .menu-button{
+        display: block;
+    }
+}
