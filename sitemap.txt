@@ -2,5 +2,3 @@ https://sarojkumar10.github.io/?pg=home
 https://sarojkumar10.github.io/?pg=projects
 https://sarojkumar10.github.io/?pg=blogs
 https://sarojkumar10.github.io/?pg=about
-
-https://sarojkumar10.github.io/?pg=projects&prj=Peregrine C++ Logger
