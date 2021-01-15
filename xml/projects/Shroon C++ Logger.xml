@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project title="Shroon C++ Logger" language="C++" languageVersion="17" type="Library" stableVersion="1.0.0" develVersion="1.0.0" firstReleaseDate="12/1/2021" latestReleaseDate="12/1/2021">
+    <tags list="c++;c++17;library;logger;string-formatting"></tags>
+    <repo link="https://github.com/CodingSaroj/ShroonCPPLogger"></repo>
+</project>
