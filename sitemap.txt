@@ -1,5 +1,5 @@
-https://sarojkumar10.github.io/?pg=home
-https://sarojkumar10.github.io/?pg=projects
-https://sarojkumar10.github.io/?pg=blogs
-https://sarojkumar10.github.io/?pg=about
-https://sarojkumar10.github.io/?pg=projects&prj=Peregrine%20C++%20Logger
+https://codingsaroj.github.io/?pg=home
+https://codingsaroj.github.io/?pg=projects
+https://codingsaroj.github.io/?pg=blogs
+https://codingsaroj.github.io/?pg=about
+https://codingsaroj.github.io/?pg=projects&prj=Peregrine%20C++%20Logger
