@@ -416,6 +416,12 @@ function listBlogPosts()
 
     var postsStr = http.responseText
 
+    // Remove trailing newlines
+    while (projectsStr[projectsStr.length - 1] == '\n')
+    {
+        projectsStr = projectsStr.substr(0, projectsStr.length - 1)
+    }
+
     var posts = postsStr.split('\n')
 
     if (postsStr == '')
@@ -455,6 +461,12 @@ function listProjects()
     xhttp.send()
 
     var projectsStr = xhttp.responseText
+
+    // Remove trailing newlines
+    while (projectsStr[projectsStr.length - 1] == '\n')
+    {
+        projectsStr = projectsStr.substr(0, projectsStr.length - 1)
+    }
 
     var projects = projectsStr.split('\n')
 
