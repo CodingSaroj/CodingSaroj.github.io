@@ -2,4 +2,4 @@ https://codingsaroj.github.io/?pg=home
 https://codingsaroj.github.io/?pg=projects
 https://codingsaroj.github.io/?pg=blogs
 https://codingsaroj.github.io/?pg=about
-https://codingsaroj.github.io/?pg=projects&prj=Peregrine%20C++%20Logger
+https://codingsaroj.github.io/?pg=projects&prj=Shroon%20C++%20Logger
