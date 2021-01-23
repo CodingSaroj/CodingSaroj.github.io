@@ -4,6 +4,19 @@ var pageEnv = {
     prj: ""
 }
 
+var blogListCache = ''
+var projectListCache = ''
+
+window.addEventListener( "pageshow", function (event)
+{
+    var historyTraversal = event.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2 )
+
+    if (historyTraversal)
+    {
+        window.location.reload()
+    }
+});
+
 function searchCustom(str1, str2)
 {
     return str1.toLowerCase().indexOf(str2.toLowerCase()) != -1
@@ -39,6 +52,8 @@ function onWindowLoad()
     }
 
     document.getElementById('page-content').setAttribute('include-html', pageEnv.pg + '.html')
+
+    includePageContent()
 }
 
 function setTitle()
@@ -236,14 +251,16 @@ function gotoProject(file)
     
     try
     {
-        xhttp.open('GET', 'https://raw.githubusercontent.com/SarojKumar10/PeregrineCPPLogger/master/README.md', false)
+        readmeLink = repoLink.replace('github.com', 'raw.githubusercontent.com') + '/master/README.md'
+
+        xhttp.open('GET', readmeLink, false)
         xhttp.send()
         
         description = xhttp.responseText
     }
     catch(error)
     {
-        description = 'Could not retrieve project description from <a href="https://raw.githubusercontent.com/SarojKumar10/PeregrineCPPLogger/master/README.md">https://raw.githubusercontent.com/SarojKumar10/PeregrineCPPLogger/master/README.md</a>.'
+        description = 'Could not retrieve project description from <a href="' + readmeLink + '">' + readmeLink + '</a>.'
     }
 
     document.getElementById('project-description').innerHTML = '\
@@ -275,7 +292,13 @@ function searchBlogPosts()
     xhttp.open('GET', '../blogposts.txt', false)
     xhttp.send()
 
-    var postsStr = xhttp.responseText
+    if (xhttp.status == 200)
+    {
+        // Reload the cache.
+        blogListCache = xhttp.responseText
+    }
+
+    var postsStr = blogListCache
 
     var posts = postsStr.split('\n')
 
@@ -349,7 +372,13 @@ function searchProjects()
     xhttp.open('GET', '../projects.txt', false)
     xhttp.send()
 
-    var projectsStr = xhttp.responseText
+    if (xhttp.status == 200)
+    {
+        // Reload the cache.
+        projectListCache = xhttp.responseText
+    }
+
+    var projectsStr = projectListCache
 
     var projects = projectsStr.split('\n')
 
@@ -409,17 +438,23 @@ function searchProjects()
 
 function listBlogPosts()
 {
-    var http = new XMLHttpRequest()
+    var xhttp = new XMLHttpRequest()
     
-    http.open('GET', '../blogposts.txt', false)
-    http.send()
+    xhttp.open('GET', '../blogposts.txt', false)
+    xhttp.send()
 
-    var postsStr = http.responseText
+    if (xhttp.status == 200)
+    {
+        // Reload the cache.
+        blogListCache = xhttp.responseText
+    }
+
+    var postsStr = blogListCache
 
     // Remove trailing newlines
-    while (projectsStr[projectsStr.length - 1] == '\n')
+    while (postsStr[postsStr.length - 1] == '\n')
     {
-        projectsStr = projectsStr.substr(0, projectsStr.length - 1)
+        postsStr = postsStr.substr(0, postsStr.length - 1)
     }
 
     var posts = postsStr.split('\n')
@@ -460,7 +495,15 @@ function listProjects()
     xhttp.open('GET', '../projects.txt', false)
     xhttp.send()
 
-    var projectsStr = xhttp.responseText
+    if (xhttp.status == 200)
+    {
+        // Reload the cache.
+        projectListCache = xhttp.responseText
+    }
+    
+    console.log(projectListCache)
+
+    var projectsStr = projectListCache
 
     // Remove trailing newlines
     while (projectsStr[projectsStr.length - 1] == '\n')
@@ -486,6 +529,12 @@ function listProjects()
 
         xhttp.open('GET', '../xml/projects/' + projects[i], false)
         xhttp.send()
+
+        if (xhttp.status == 200)
+        {
+            // Reload the cache.
+            projectListCache = xhttp.responseText
+        }
 
         var tagsStr = xhttp.responseXML.getRootNode().childNodes[0].childNodes[1].attributes['list'].nodeValue
 

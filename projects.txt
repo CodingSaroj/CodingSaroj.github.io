@@ -1,1 +1,2 @@
 Shroon%$C++%$Logger.xml
+Shroon%$Structure.xml
