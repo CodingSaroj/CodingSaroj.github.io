@@ -7,6 +7,9 @@ var pageEnv = {
 var blogListCache = ''
 var projectListCache = ''
 
+var blogsCache = {}
+var projectsCache = {}
+
 window.addEventListener( "pageshow", function (event)
 {
     var historyTraversal = event.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2 )
@@ -15,7 +18,7 @@ window.addEventListener( "pageshow", function (event)
     {
         window.location.reload()
     }
-});
+})
 
 function searchCustom(str1, str2)
 {
@@ -54,6 +57,22 @@ function onWindowLoad()
     document.getElementById('page-content').setAttribute('include-html', pageEnv.pg + '.html')
 
     includePageContent()
+
+    document.getElementById('blog-search').addEventListener('keyup', function (e)
+    {
+        if (e.key == 'Enter' || e.keyCode == 13)
+        {
+            searchBlogPosts()
+        }
+    })
+    
+    document.getElementById('project-search').addEventListener('keyup', function (e)
+    {
+        if (e.key == 'Enter' || e.keyCode == 13)
+        {
+            searchProjects()
+        }
+    })
 }
 
 function setTitle()
@@ -173,7 +192,13 @@ function gotoBlog(file)
     xhttp.open('GET', file, false)
     xhttp.send()
 
-    var xmlDoc = xhttp.responseXML
+    if (xhttp.status == 200)
+    {
+        // Reload the cache.
+        blogsCache[file] = xhttp.responseXML
+    }
+
+    var xmlDoc = blogsCache[file]
 
     var root = xmlDoc.getRootNode()
 
@@ -200,7 +225,13 @@ function gotoProject(file)
     xhttp.open('GET', file, false)
     xhttp.send()
 
-    var xmlDoc = xhttp.responseXML
+    if (xhttp.status == 200)
+    {
+        // Reload the cache.
+        projectsCache[file] = xhttp.responseXML
+    }
+
+    var xmlDoc = projectsCache[file]
 
     var root = xmlDoc.getRootNode()
 
@@ -309,6 +340,11 @@ function searchBlogPosts()
 
     for (var i = 0; i < posts.length; i++)
     {
+        if (posts[i].length == 0)
+        {
+            continue
+        }
+
         while (posts[i][0].search('\\%\\$') != -1)
         {
             posts[i][0] = posts[i][0].replace('%$', ' ')
@@ -386,21 +422,39 @@ function searchProjects()
 
     for (var i = 0; i < projects.length; i++)
     {
+        if (projects[i].length == 0)
+        {
+            continue
+        }
+
         while (projects[i].search('\\%\\$') != -1)
         {
             projects[i] = projects[i].replace('%$', ' ')
         }
 
-        xhttp.open('GET', '../xml/projects/' + projects[i], false)
+        var path = '../xml/projects/' + projects[i]
+
+        xhttp.open('GET', path, false)
         xhttp.send()
 
-        var tagsStr = xhttp.responseXML.getRootNode().childNodes[0].childNodes[1].attributes['list'].nodeValue
+        if (xhttp.status == 200)
+        {
+            // Reload the cache.
+            projectsCache[path] = xhttp.responseXML
+        }
+
+        var tagsStr = projectsCache[path].getRootNode().childNodes[0].childNodes[1].attributes['list'].nodeValue
 
         projectTags.push(tagsStr.split(';'))
     }
 
     for (var i = 0; i < projects.length; i++)
     {
+        if (projects[i].length == 0)
+        {
+            continue
+        }
+
         var resultName = searchCustom(projects[i], query)
 
         var resultTags = false
@@ -466,6 +520,11 @@ function listBlogPosts()
 
     for (var i = 0; i < posts.length; i++)
     {
+        if (posts[i].length == 0)
+        {
+            continue
+        }
+
         posts[i] = posts[i].split(' ')
     }
 
@@ -501,8 +560,6 @@ function listProjects()
         projectListCache = xhttp.responseText
     }
     
-    console.log(projectListCache)
-
     var projectsStr = projectListCache
 
     // Remove trailing newlines
@@ -522,6 +579,11 @@ function listProjects()
 
     for (var i = 0; i < projects.length; i++)
     {
+        if (projects[i].length == 0)
+        {
+            continue
+        }
+
         while (projects[i].search('\\%\\$') != -1)
         {
             projects[i] = projects[i].replace('%$', ' ')
